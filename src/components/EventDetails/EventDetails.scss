@@ -1,0 +1,286 @@
+.event-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #FAF7F2;
+  padding: 80px 0;
+}
+
+.event-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(24, 48, 89, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 85% 65% at 50% 50%, rgba(197, 155, 39, 0.1) 0%, transparent 75%);
+  pointer-events: none;
+}
+
+.event-container {
+  position: relative;
+  z-index: 1;
+  @include section-container;
+  @include flex-col-center;
+  gap: 0;
+}
+
+.event-eyebrow {
+  font-family: $font-heading;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: $color-gold-dark;
+  margin-bottom: 10px;
+}
+
+.event-title {
+  @include section-title;
+  color: $color-navy-dark;
+  margin-bottom: 8px;
+}
+
+// ─── Detail Cards Grid ────────────────────────────────────────────────────────
+.detail-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  width: 100%;
+  max-width: 980px;
+  margin: 44px 0 36px;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+.detail-card {
+  position: relative;
+  background: linear-gradient(145deg, #162B4E 0%, #1E3A68 55%, #132442 100%);
+  border: 1.8px solid rgba(212, 175, 55, 0.7);
+  border-radius: 22px;
+  padding: 38px 24px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 250px;
+  gap: 8px;
+  text-align: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    0 16px 45px rgba(13, 27, 53, 0.22),
+    0 0 20px rgba(212, 175, 55, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  cursor: default;
+  overflow: hidden;
+
+  // Top gold highlight bar
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #D4AF37, #F4D35E, #D4AF37, transparent);
+    border-radius: 2px;
+  }
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+    opacity: 0.6;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: #F4D35E;
+    box-shadow: 
+      0 22px 55px rgba(13, 27, 53, 0.35),
+      0 0 35px rgba(212, 175, 55, 0.35),
+      inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    transform: translateY(-8px);
+
+    .detail-card__glow {
+      opacity: 1;
+    }
+  }
+
+  &__icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.22) 0%, rgba(212, 175, 55, 0.08) 100%);
+    border: 1.5px solid rgba(212, 175, 55, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F4D35E;
+    margin-bottom: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+    .detail-card:hover & {
+      background: linear-gradient(135deg, #F4D35E 0%, #D4AF37 100%);
+      color: #132442;
+      box-shadow: 0 0 22px rgba(212, 175, 55, 0.65);
+      transform: scale(1.1);
+    }
+  }
+
+  &__label {
+    font-family: $font-body;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  &__value {
+    font-family: $font-body;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #F5E8C7;
+  }
+
+  &__main {
+    font-family: $font-heading;
+    font-size: clamp(1.15rem, 2.3vw, 1.45rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    white-space: pre-line;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    margin-top: auto;
+  }
+
+  // Refine venue card (Address) layout
+  &:nth-child(3) .detail-card__main {
+    font-size: clamp(0.88rem, 1.6vw, 1.05rem);
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  &__map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 6px 14px;
+    border-radius: $border-radius-pill;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    color: #F4D35E;
+    font-family: $font-body;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: #D4AF37;
+      color: #132442;
+      border-color: #F4D35E;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ─── Dress Code Banner ────────────────────────────────────────────────────────
+.dress-code-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #183059 0%, #162E52 100%);
+  border: 1.8px solid #D4AF37;
+  box-shadow: 
+    0 12px 35px rgba(13, 27, 53, 0.2),
+    0 0 20px rgba(212, 175, 55, 0.18);
+  border-radius: $border-radius-pill;
+  padding: 12px 32px;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 
+      0 16px 45px rgba(13, 27, 53, 0.3),
+      0 0 30px rgba(212, 175, 55, 0.35);
+    transform: translateY(-3px);
+  }
+
+  .dress-code__label {
+    font-family: $font-body;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #F4D35E;
+  }
+
+  .dress-code__divider {
+    width: 1px;
+    height: 14px;
+    background: rgba(212, 175, 55, 0.5);
+  }
+
+  .dress-code__value {
+    font-family: $font-body;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+}
+
+// ─── Contacts ─────────────────────────────────────────────────────────────────
+.event-contacts {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: $font-body;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: $color-navy-dark;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(197, 155, 39, 0.6);
+  border-radius: $border-radius-pill;
+  padding: 10px 24px;
+  box-shadow: 0 6px 20px rgba(13, 27, 53, 0.08);
+  transition: $transition-fast;
+
+  &:hover {
+    background: #183059;
+    color: #FFFFFF;
+    border-color: #183059;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(24, 48, 89, 0.3);
+
+    svg {
+      color: #F4D35E;
+    }
+  }
+
+  svg {
+    color: $color-gold-dark;
+    flex-shrink: 0;
+    transition: $transition-fast;
+  }
+}

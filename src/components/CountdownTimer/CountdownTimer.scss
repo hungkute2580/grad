@@ -1,0 +1,122 @@
+.countdown-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #FAF7F2;
+}
+
+.countdown-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(197, 155, 39, 0.1) 0%, transparent 70%),
+    linear-gradient(180deg, #FAF7F2 0%, #F4EFE6 100%);
+}
+
+.countdown-container {
+  position: relative;
+  z-index: 1;
+  @include section-container;
+  @include flex-col-center;
+  gap: 12px;
+}
+
+.countdown-eyebrow {
+  font-family: $font-heading;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: $color-gold-dark;
+}
+
+.countdown-title {
+  @include section-title;
+  color: $color-navy-dark;
+  margin-bottom: 20px;
+}
+
+// ─── Units Row ────────────────────────────────────────────────────────────────
+.countdown-units {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.countdown-unit-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.countdown-separator {
+  font-family: $font-heading;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: $color-navy-dark;
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.count-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+// ─── Flip Card ────────────────────────────────────────────────────────────────
+.count-card {
+  position: relative;
+  width: clamp(72px, 15vw, 105px);
+  height: clamp(82px, 18vw, 115px);
+  background: #FFFFFF;
+  border: 2px solid rgba(197, 155, 39, 0.5);
+  box-shadow: 0 10px 30px rgba(13, 27, 53, 0.08);
+  border-radius: $border-radius-sm;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--flip {
+    animation: flipNumber 0.5s ease-in-out;
+  }
+
+  &__divider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(197, 155, 39, 0.25);
+  }
+}
+
+.count-number {
+  font-family: $font-heading;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 800;
+  color: $color-navy-dark;
+  line-height: 1;
+  z-index: 1;
+  position: relative;
+}
+
+.count-label {
+  font-family: $font-body;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
+
+.countdown-sub {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $color-navy-mid;
+  letter-spacing: 0.05em;
+  margin-top: 16px;
+  text-align: center;
+}

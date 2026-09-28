@@ -1,0 +1,51 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.ribbon-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #183059 0%, #295796 50%, #183059 100%);
+  border-top: 1.5px solid #D4AF37;
+  border-bottom: 1.5px solid #D4AF37;
+  padding: 10px 0;
+  box-shadow: 0 6px 20px rgba(13, 27, 53, 0.18);
+  z-index: 5;
+  white-space: nowrap;
+  display: flex;
+
+  &--reverse {
+    .ribbon-marquee-track {
+      animation-direction: reverse;
+    }
+  }
+}
+
+.ribbon-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding-right: 36px;
+  animation: marqueeContinuous 55s linear infinite;
+  will-change: transform;
+}
+
+.ribbon-marquee-item {
+  font-family: $font-heading;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+@keyframes marqueeContinuous {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

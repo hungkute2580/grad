@@ -1,0 +1,142 @@
+// ───────────────────────────────────────────────────────
+//  ALL ANIMATION KEYFRAMES — Graduation Landing Page
+// ───────────────────────────────────────────────────────
+
+// Floating (envelope card, decorative elements)
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-14px) rotate(1.5deg); }
+  66%       { transform: translateY(-7px) rotate(-1deg); }
+}
+
+@keyframes floatCap {
+  0%, 100% { transform: translateY(0) rotate(-8deg) scale(1); }
+  50%       { transform: translateY(-22px) rotate(6deg) scale(1.06); }
+}
+
+// Gold shimmer sweep across elements
+@keyframes shimmerGold {
+  0%   { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+
+// Glow pulse
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3),
+                0 0 40px rgba(212, 175, 55, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.7),
+                0 0 70px rgba(212, 175, 55, 0.35),
+                0 0 100px rgba(212, 175, 55, 0.1);
+  }
+}
+
+@keyframes textGlowPulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+  50%       { text-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 0 50px rgba(212, 175, 55, 0.3); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(212, 175, 55, 0.3); }
+  50%       { border-color: rgba(212, 175, 55, 0.8); }
+}
+
+// Wax seal decoration
+@keyframes waxSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+// Entrance animations
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: scale(0.4); }
+  60%  { opacity: 1; transform: scale(1.08); }
+  80%  { transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+// Rotating avatar ring
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+// Countdown number flip
+@keyframes flipNumber {
+  0%   { transform: perspective(300px) rotateX(0deg);   opacity: 1; }
+  45%  { transform: perspective(300px) rotateX(-90deg); opacity: 0.3; }
+  55%  { transform: perspective(300px) rotateX(90deg);  opacity: 0.3; }
+  100% { transform: perspective(300px) rotateX(0deg);   opacity: 1; }
+}
+
+// Button shimmer effect
+@keyframes btnShimmer {
+  0%   { left: -120%; }
+  100% { left: 200%; }
+}
+
+// Ornamental line expand
+@keyframes lineExpand {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+// Typewriter cursor
+@keyframes caretBlink {
+  0%, 100% { border-right-color: transparent; }
+  50%       { border-right-color: #D4AF37; }
+}
+
+// Star / sparkle twinkle
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.7) rotate(0deg); }
+  50%       { opacity: 1;    transform: scale(1.3) rotate(180deg); }
+}
+
+// Separator star pulse
+@keyframes separatorPulse {
+  0%, 100% { transform: scale(1) rotate(0deg);   opacity: 0.5; }
+  50%       { transform: scale(1.4) rotate(180deg); opacity: 1; }
+}
+
+// Gradient background shift
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// RSVP success pop
+@keyframes successPop {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+// Gallery image hover overlay
+@keyframes overlaySlideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}

@@ -1,0 +1,66 @@
+// ─── Color System ─────────────────────────────────────────────────────────────
+// Light theme background colors (Image 2 style)
+$color-bg-light:        #FAF7F2;
+$color-bg-card:         #FFFFFF;
+$color-bg-gold-brush:   #F3E8C9;
+$color-bg-alt:          #F4EFE6;
+
+// Deep Navy palette (Primary text & contrast elements)
+$color-navy-darkest:    #FAF7F2; // Body background
+$color-navy-dark:       #183059; // Deep royal navy text/elements (brightened from #0D1B35)
+$color-navy:            #1E3F70; // Vibrant navy
+$color-navy-mid:        #2C5282; // Mid navy
+$color-navy-light:      #EBF1F9;
+$color-navy-soft:       #F0F4FA;
+
+// Gold Palette
+$color-gold:            #C59B27;
+$color-gold-light:      #F5E8C7;
+$color-gold-pale:       #FFFDF9;
+$color-gold-dark:       #8B6D1B;
+$color-gold-foil:       #D4AF37;
+
+// Accent Crimson & Ivory
+$color-crimson:         #800020;
+$color-crimson-light:   #A52935;
+$color-ivory:           #FAF7F2;
+$color-white:           #FFFFFF;
+
+// Text colors (Light mode high-contrast)
+$color-text-primary:    #0D1B35;
+$color-text-secondary:  #2C4263;
+$color-text-muted:      #64748B;
+$color-text-gold:       #8B6D1B;
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+$font-heading:   'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+$font-display:   'Dancing Script', cursive;
+$font-body:      'Montserrat', 'Inter', sans-serif;
+$font-serif:     'Playfair Display', Georgia, serif;
+
+// ─── Sizing ───────────────────────────────────────────────────────────────────
+$section-max-width:     1100px;
+$card-border-radius:    16px;
+$border-radius-sm:      8px;
+$border-radius-lg:      24px;
+$border-radius-pill:    50px;
+
+// ─── Shadows ──────────────────────────────────────────────────────────────────
+$shadow-gold-sm:   0 4px 20px rgba(197, 155, 39, 0.25);
+$shadow-gold-md:   0 8px 30px rgba(197, 155, 39, 0.35);
+$shadow-gold-lg:   0 12px 50px rgba(197, 155, 39, 0.45);
+$shadow-card:      0 12px 40px rgba(13, 27, 53, 0.08), 0 2px 8px rgba(13, 27, 53, 0.04);
+$shadow-navy:      0 10px 30px rgba(13, 27, 53, 0.15);
+
+// ─── Transitions ──────────────────────────────────────────────────────────────
+$transition-fast:   all 0.2s ease;
+$transition-normal: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-slow:   all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+// ─── Z-index ──────────────────────────────────────────────────────────────────
+$z-particles:   0;
+$z-content:     1;
+$z-envelope:    10;
+$z-lightbox:    100;
+$z-modal:       200;
+

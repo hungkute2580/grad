@@ -1,0 +1,430 @@
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse 120% 100% at 50% 50%,
+    #FFFDF9 0%,
+    #FAF7F2 60%,
+    #F2EBDC 100%
+  );
+  z-index: $z-envelope;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  padding: 16px;
+  gap: 14px;
+}
+
+// ─── Ambient Glow ─────────────────────────────────────────────────────────────
+.env-ambient {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+
+  &--left {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(197, 155, 39, 0.15) 0%, transparent 70%);
+  }
+
+  &--right {
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(197, 155, 39, 0.12) 0%, transparent 70%);
+  }
+}
+
+// ─── Floating Decorations ─────────────────────────────────────────────────────
+.floating-cap {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.35;
+  pointer-events: none;
+  animation: floatCap 5s ease-in-out infinite;
+
+  &.cap-tl {
+    top: 8%;
+    left: 6%;
+    animation-delay: -1s;
+    font-size: 2rem;
+    transform: rotate(-15deg);
+  }
+
+  &.cap-br {
+    bottom: 12%;
+    right: 8%;
+    animation-delay: -3s;
+    font-size: 1.8rem;
+    transform: rotate(10deg);
+  }
+}
+
+.floating-star {
+  position: absolute;
+  color: $color-gold;
+  pointer-events: none;
+  animation: twinkle 3s ease-in-out infinite;
+
+  &.star-1 {
+    top: 20%;
+    right: 12%;
+    font-size: 1.4rem;
+    animation-delay: 0s;
+  }
+  &.star-2 {
+    bottom: 25%;
+    left: 10%;
+    font-size: 1rem;
+    animation-delay: -1.2s;
+  }
+  &.star-3 {
+    top: 55%;
+    right: 6%;
+    font-size: 0.8rem;
+    animation-delay: -2.4s;
+  }
+}
+
+// ─── The Card ─────────────────────────────────────────────────────────────────
+.invite-card {
+  position: relative;
+  width: min(340px, 86vw);
+  background: #FFFFFF;
+  border: 2px solid rgba(197, 155, 39, 0.6);
+  border-radius: $card-border-radius;
+  padding: 22px 18px 50px; // extra bottom for wax seal
+  text-align: center;
+  margin-top: 12px; // shift down slightly
+  animation: pulseGlow 4s ease-in-out infinite, float 7s ease-in-out infinite;
+  box-shadow:
+    0 20px 50px rgba(13, 27, 53, 0.12),
+    0 4px 15px rgba(197, 155, 39, 0.15),
+    inset 0 1px 0 #FFFFFF;
+
+  // Gold foil shimmer overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: $card-border-radius;
+    background: linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(243, 232, 201, 0.25) 40%,
+      rgba(197, 155, 39, 0.15) 50%,
+      rgba(243, 232, 201, 0.25) 60%,
+      transparent 75%
+    );
+    background-size: 300% 100%;
+    animation: shimmerGold 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+// Inner double border frame
+.card-inner-frame {
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(197, 155, 39, 0.35);
+  border-radius: calc(#{$card-border-radius} - 4px);
+  pointer-events: none;
+}
+
+// ─── Card Header ──────────────────────────────────────────────────────────────
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.vku-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid rgba(197, 155, 39, 0.8);
+  background: rgba(243, 232, 201, 0.4);
+  border-radius: 5px;
+  padding: 3px 6px;
+  font-family: $font-heading;
+  font-weight: 900;
+  line-height: 1;
+
+  span {
+    color: $color-navy-dark;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+.card-school-name {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  .school-full {
+    font-family: $font-heading;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: $color-navy-dark;
+    font-weight: 700;
+  }
+
+  .school-year {
+    font-family: $font-body;
+    font-size: 0.55rem;
+    color: $color-text-muted;
+    letter-spacing: 0.05em;
+    margin-top: 1px;
+  }
+}
+
+// ─── Divider ──────────────────────────────────────────────────────────────────
+.card-divider {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+
+  .div-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(197, 155, 39, 0.5), transparent);
+  }
+
+  .div-star {
+    color: $color-gold;
+    font-size: 0.65rem;
+    animation: separatorPulse 3s ease-in-out infinite;
+  }
+}
+
+// ─── Title Area ───────────────────────────────────────────────────────────────
+.card-title-area {
+  margin: 4px 0;
+}
+
+.title-happy {
+  font-family: $font-heading;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: $color-navy-mid;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.title-graduation {
+  font-family: $font-display;
+  font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+  font-weight: 700;
+  color: $color-navy-dark;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.grad-cap-center {
+  font-size: 1.4rem;
+  animation: float 4s ease-in-out infinite;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+// ─── Invite Text ──────────────────────────────────────────────────────────────
+.card-invite {
+  margin: 8px 0;
+}
+
+.invite-formal {
+  font-family: $font-body;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: $color-navy-mid;
+  margin-bottom: 4px;
+}
+
+.invite-dashes {
+  color: rgba(197, 155, 39, 0.6);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  margin: 2px 0;
+}
+
+.invite-to {
+  font-family: $font-display;
+  font-size: clamp(1.25rem, 4.5vw, 1.55rem);
+  color: $color-navy-dark;
+  font-weight: 700;
+  margin: 4px 0;
+  line-height: 1;
+}
+
+.invite-suffix {
+  font-family: $font-body;
+  font-size: 0.68rem;
+  color: $color-navy-mid;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+// ─── Graduate Name ────────────────────────────────────────────────────────────
+.card-name {
+  margin: 6px 0 2px;
+}
+
+.name-display {
+  font-family: $font-display;
+  font-size: clamp(1.5rem, 5.5vw, 1.95rem);
+  color: $color-navy-dark;
+  font-weight: 700;
+  display: block;
+  line-height: 1.1;
+}
+
+.card-degree {
+  font-family: $font-body;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $color-navy-mid;
+  margin-bottom: 8px;
+}
+
+// ─── Event Info ───────────────────────────────────────────────────────────────
+.card-event-info {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.event-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(243, 232, 201, 0.6);
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  border-radius: 16px;
+  padding: 3px 10px;
+  font-family: $font-body;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $color-navy-dark;
+  letter-spacing: 0.03em;
+}
+
+// ─── Wax Seal ─────────────────────────────────────────────────────────────────
+.wax-seal {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+}
+
+.wax-seal__ring {
+  position: absolute;
+  inset: 0;
+  border: 2px dashed rgba(197, 155, 39, 0.7);
+  border-radius: 50%;
+  animation: waxSpin 12s linear infinite;
+}
+
+.wax-seal__inner {
+  position: absolute;
+  inset: 4px;
+  background: $color-crimson;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-heading;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 12px rgba(128, 0, 32, 0.4);
+}
+
+// ─── Open Button ──────────────────────────────────────────────────────────────
+.open-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #0D1B35 0%, #1E3A6D 100%);
+  background-size: 200% auto;
+  border: 1.5px solid rgba(197, 155, 39, 0.5);
+  border-radius: $border-radius-pill;
+  cursor: pointer;
+  font-family: $font-heading;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: $transition-normal;
+  box-shadow: 0 8px 25px rgba(13, 27, 53, 0.25);
+  z-index: 2;
+
+  &:hover {
+    box-shadow: 0 12px 35px rgba(13, 27, 53, 0.35), $shadow-gold-sm;
+    transform: translateY(-2px);
+  }
+
+  &--clicked {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+.btn-shimmer {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: btnShimmer 2.5s ease-in-out infinite;
+}
+
+.btn-icon {
+  font-size: 0.7rem;
+  color: #D4AF37;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+// ─── Hint Text ────────────────────────────────────────────────────────────────
+.hint-text {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $color-navy-mid;
+  letter-spacing: 0.1em;
+  animation: float 4s ease-in-out infinite;
+}

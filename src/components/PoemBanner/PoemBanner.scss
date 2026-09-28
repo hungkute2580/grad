@@ -1,0 +1,212 @@
+.poem-banner {
+  position: relative;
+  padding: 90px 24px;
+  overflow: hidden;
+  background-color: #FAF7F2;
+}
+
+.poem-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #FAF7F2 0%,
+    #F4EFE6 50%,
+    #FAF7F2 100%
+  );
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 75% 95% at 50% 50%, rgba(197, 155, 39, 0.1) 0%, transparent 75%);
+  }
+}
+
+.poem-carousel-outer {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poem-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 56px 48px;
+  background: #FFFFFF;
+  border: 2px solid rgba(197, 155, 39, 0.55);
+  border-radius: $card-border-radius;
+  box-shadow: 0 16px 45px rgba(13, 27, 53, 0.08), 0 0 30px rgba(197, 155, 39, 0.12);
+  touch-action: pan-y;
+
+  @include mobile {
+    padding: 40px 20px;
+  }
+}
+
+.poem-slide-wrapper {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.poem-star {
+  color: #D4AF37;
+  font-size: 1.4rem;
+  animation: twinkle 3s ease-in-out infinite;
+
+  &--close {
+    animation-delay: -1.5s;
+  }
+}
+
+.poem-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-style: normal;
+  text-align: center;
+  width: 100%;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.poem-line {
+  display: block;
+  font-family: $font-display;
+  font-size: clamp(1.4rem, 4.8vw, 2.3rem);
+  color: $color-navy-dark;
+  font-weight: 700;
+  line-height: 1.4;
+
+  &--highlight {
+    font-size: clamp(1.25rem, 4vw, 1.95rem);
+    background: linear-gradient(135deg, #8B6D1B 0%, #C59B27 50%, #9E7B15 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+  }
+}
+
+// ─── Dots & Controls ──────────────────────────────────────────────────────────
+.poem-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(197, 155, 39, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &--active {
+      background: #D4AF37;
+      width: 24px;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+    }
+  }
+}
+
+// ─── Outer Navigation Buttons ────────────────────────────────────────────────
+.poem-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(197, 155, 39, 0.5);
+  color: $color-gold-dark;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  box-shadow: 0 6px 20px rgba(13, 27, 53, 0.08), 0 0 12px rgba(197, 155, 39, 0.15);
+
+  &:hover {
+    background: #D4AF37;
+    color: #FFFFFF;
+    border-color: #D4AF37;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.5), 0 8px 25px rgba(13, 27, 53, 0.15);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  &--prev {
+    left: -28px;
+  }
+
+  &--next {
+    right: -28px;
+  }
+
+  @include tablet {
+    width: 42px;
+    height: 42px;
+    &--prev { left: -14px; }
+    &--next { right: -14px; }
+  }
+
+  @include mobile {
+    width: 38px;
+    height: 38px;
+    &--prev { left: -8px; }
+    &--next { right: -8px; }
+  }
+}
+
+.poem-accent-left,
+.poem-accent-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 65%;
+  transform-origin: top;
+  border-radius: 2px;
+}
+
+.poem-accent-left {
+  left: 20px;
+  background: linear-gradient(180deg, transparent, #D4AF37, transparent);
+}
+
+.poem-accent-right {
+  right: 20px;
+  background: linear-gradient(180deg, transparent, #D4AF37, transparent);
+}
+

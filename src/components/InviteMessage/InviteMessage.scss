@@ -1,0 +1,164 @@
+.invite-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #FAF7F2;
+}
+
+.invite-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #FAF7F2 0%,
+    #F4EFE6 50%,
+    #FAF7F2 100%
+  );
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(197, 155, 39, 0.08) 0%, transparent 70%);
+  }
+}
+
+.invite-container {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.invite-label {
+  font-family: $font-heading;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: $color-gold-dark;
+  text-transform: uppercase;
+}
+
+.invite-formal-text {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 3.8vw, 1.9rem);
+  color: $color-navy-dark;
+  font-weight: 600;
+}
+
+// ─── DEV TEAM Callout ─────────────────────────────────────────────────────────
+.devteam-callout {
+  background: #FFFFFF;
+  border: 2px solid rgba(197, 155, 39, 0.65);
+  box-shadow: 0 16px 40px rgba(13, 27, 53, 0.08), 0 4px 20px rgba(197, 155, 39, 0.18);
+  border-radius: $card-border-radius;
+  padding: 28px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: $transition-normal;
+
+  &::before {
+    content: 'VIP GUEST';
+    position: absolute;
+    top: -12px;
+    background: linear-gradient(135deg, #F5E8C7 0%, #F3E8C9 100%);
+    border: 1px solid rgba(197, 155, 39, 0.6);
+    padding: 3px 18px;
+    border-radius: 20px;
+    font-family: $font-body;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: $color-navy-dark;
+    box-shadow: 0 2px 8px rgba(197, 155, 39, 0.2);
+  }
+
+  @include mobile {
+    padding: 22px 28px;
+  }
+}
+
+.devteam-emoji-row {
+  display: flex;
+  gap: 10px;
+}
+
+.devteam-emoji {
+  font-size: 1.6rem;
+  display: inline-block;
+}
+
+.devteam-name {
+  font-family: $font-display;
+  font-size: clamp(2.6rem, 8.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  background: linear-gradient(135deg, #183059 0%, #C59B27 50%, #8B6D1B 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ─── Body Text ────────────────────────────────────────────────────────────────
+.invite-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 720px;
+  width: 100%;
+
+  &__main {
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3.2vw, 1.48rem);
+    font-weight: 600;
+    color: $color-navy-dark;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  &__card {
+    background: #FFFFFF;
+    border: 1.5px solid rgba(197, 155, 39, 0.45);
+    box-shadow: 0 12px 35px rgba(13, 27, 53, 0.06), 0 2px 8px rgba(197, 155, 39, 0.08);
+    border-radius: $card-border-radius;
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+
+    p {
+      font-family: $font-body;
+      font-size: 0.96rem;
+      color: $color-navy-mid;
+      line-height: 1.8;
+
+      strong {
+        color: $color-navy-dark;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__sign {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    color: $color-gold-dark;
+    font-weight: 700;
+    font-style: italic;
+  }
+}

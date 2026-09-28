@@ -1,0 +1,247 @@
+.rsvp-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #FAF7F2;
+}
+
+.rsvp-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(197, 155, 39, 0.08) 0%, transparent 65%);
+}
+
+.rsvp-container {
+  position: relative;
+  z-index: 1;
+  @include section-container;
+  @include flex-col-center;
+  gap: 0;
+}
+
+.rsvp-eyebrow {
+  font-family: $font-heading;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: $color-gold-dark;
+  margin-bottom: 10px;
+}
+
+.rsvp-title {
+  @include section-title;
+  color: $color-navy-dark;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 8px;
+}
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+.rsvp-card {
+  background: #FFFFFF;
+  border: 2px solid rgba(197, 155, 39, 0.5);
+  box-shadow: 0 12px 40px rgba(13, 27, 53, 0.08);
+  border-radius: $card-border-radius;
+  padding: 44px 40px;
+  width: 100%;
+  max-width: 580px;
+  margin-top: 40px;
+
+  @include mobile {
+    padding: 32px 24px;
+  }
+}
+
+// ─── Form ─────────────────────────────────────────────────────────────────────
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.form-label {
+  font-family: $font-body;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-navy-dark;
+}
+
+.form-input {
+  background: #FAF7F2;
+  border: 1.5px solid rgba(197, 155, 39, 0.35);
+  border-radius: $border-radius-sm;
+  padding: 14px 18px;
+  color: $color-navy-dark;
+  font-family: $font-body;
+  font-size: 0.95rem;
+  font-weight: 500;
+  outline: none;
+  transition: $transition-fast;
+  width: 100%;
+
+  &::placeholder {
+    color: #94A3B8;
+  }
+
+  &:focus {
+    border-color: $color-gold;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
+  }
+}
+
+.form-select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%230D1B35' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+
+  option {
+    background: #FFFFFF;
+    color: $color-navy-dark;
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+// ─── Radio Group ──────────────────────────────────────────────────────────────
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: $border-radius-sm;
+  border: 1.5px solid rgba(197, 155, 39, 0.3);
+  background: #FAF7F2;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    border-color: $color-gold;
+    background: rgba(243, 232, 201, 0.3);
+  }
+
+  &--active {
+    border-color: $color-navy-dark;
+    background: rgba(243, 232, 201, 0.6);
+    box-shadow: 0 0 0 2px rgba(13, 27, 53, 0.15);
+  }
+}
+
+.radio-emoji {
+  font-size: 1.2rem;
+}
+
+.radio-text {
+  font-family: $font-body;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-navy-dark;
+}
+
+// ─── Submit Button ────────────────────────────────────────────────────────────
+.rsvp-submit-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #0D1B35 0%, #1E3A6D 100%);
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-family: $font-heading;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #FFFFFF;
+  transition: $transition-normal;
+  box-shadow: 0 8px 25px rgba(13, 27, 53, 0.2);
+  width: 100%;
+
+  &:hover:not(:disabled) {
+    box-shadow: 0 12px 30px rgba(13, 27, 53, 0.3), $shadow-gold-sm;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  &--loading {
+    animation: pulseGlow 1s ease-in-out infinite;
+  }
+}
+
+// ─── Success State ────────────────────────────────────────────────────────────
+.rsvp-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 20px 0;
+  animation: successPop 0.5s ease-out;
+
+  .success-icon {
+    color: $color-gold;
+    animation: bounceIn 0.6s ease-out;
+  }
+
+  .success-title {
+    font-family: $font-heading;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: $color-navy-dark;
+  }
+
+  .success-msg {
+    font-family: $font-body;
+    font-size: 0.95rem;
+    color: $color-navy-mid;
+    line-height: 1.7;
+    max-width: 380px;
+  }
+}
+
+.rsvp-reset-btn {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-navy-mid;
+  background: none;
+  border: 1px solid rgba(13, 27, 53, 0.2);
+  border-radius: $border-radius-pill;
+  padding: 6px 18px;
+  cursor: pointer;
+  transition: $transition-fast;
+  margin-top: 8px;
+
+  &:hover {
+    border-color: $color-navy-dark;
+    color: $color-navy-dark;
+  }
+}
