@@ -5,7 +5,14 @@
 
   // Override global .section padding-bottom on mobile
   @include mobile {
-    padding-bottom: 48px;
+    padding-bottom: 40px;
+  }
+}
+
+// Higher specificity override for section padding
+.gallery-section.section {
+  @include mobile {
+    padding-bottom: 30px;
   }
 }
 
