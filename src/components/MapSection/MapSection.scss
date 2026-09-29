@@ -46,6 +46,11 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 // ─── Map Iframe ───────────────────────────────────────────────────────────────
@@ -57,7 +62,7 @@
   aspect-ratio: 4 / 3;
 
   @include mobile {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
   }
 }
 
@@ -79,6 +84,11 @@
   flex-direction: column;
   gap: 24px;
   align-items: center;
+
+  @include mobile {
+    padding: 20px 16px;
+    gap: 18px;
+  }
 }
 
 .venue-info {
