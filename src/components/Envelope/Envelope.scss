@@ -152,23 +152,11 @@
   margin-bottom: 10px;
 }
 
-.vku-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1.5px solid rgba(197, 155, 39, 0.8);
-  background: rgba(243, 232, 201, 0.4);
-  border-radius: 5px;
-  padding: 3px 6px;
-  font-family: $font-heading;
-  font-weight: 900;
-  line-height: 1;
-
-  span {
-    color: $color-navy-dark;
-    font-size: 0.78rem;
-    letter-spacing: 0.05em;
-  }
+.vku-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
 }
 
 .card-school-name {
@@ -326,38 +314,7 @@
   letter-spacing: 0.03em;
 }
 
-// ─── Wax Seal ─────────────────────────────────────────────────────────────────
-.wax-seal {
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
-  width: 44px;
-  height: 44px;
-}
 
-.wax-seal__ring {
-  position: absolute;
-  inset: 0;
-  border: 2px dashed rgba(197, 155, 39, 0.7);
-  border-radius: 50%;
-  animation: waxSpin 12s linear infinite;
-}
-
-.wax-seal__inner {
-  position: absolute;
-  inset: 4px;
-  background: $color-crimson;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: $font-heading;
-  font-size: 0.55rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  letter-spacing: 0.08em;
-  box-shadow: 0 4px 12px rgba(128, 0, 32, 0.4);
-}
 
 // ─── Open Button ──────────────────────────────────────────────────────────────
 .open-btn {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import vkuLogo from '@/assets/logovku.png';
 import './Envelope.scss';
 
 interface Props {
@@ -40,11 +41,7 @@ export default function Envelope({ onOpen }: Props) {
 
         {/* Header */}
         <div className="card-header">
-          <div className="vku-badge">
-            <span>V</span>
-            <span>K</span>
-            <span>U</span>
-          </div>
+          <img src={vkuLogo} alt="VKU Logo" className="vku-logo-img" />
           <div className="card-school-name">
             <span className="school-full">ĐẠI HỌC VIỆT - HÀN (VKU)</span>
             <span className="school-year">Vietnam-Korea University · 2026</span>
@@ -90,12 +87,6 @@ export default function Envelope({ onOpen }: Props) {
             <span>⏰</span>
             <span>10:00 - 12:00</span>
           </div>
-        </div>
-
-        {/* Wax seal */}
-        <div className="wax-seal" aria-hidden>
-          <div className="wax-seal__ring" />
-          <div className="wax-seal__inner">VKU</div>
         </div>
       </motion.div>
 

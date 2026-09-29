@@ -5,7 +5,7 @@ import './MapSection.scss';
 
 const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Trường+Đại+học+Công+nghệ+thông+tin+và+Truyền+thông+Việt-Hàn+VKU+470+Trần+Đại+Nghĩa+Đà+Nẵng';
 const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=0D1B35&bgcolor=FFFFFF&data=${encodeURIComponent(MAPS_URL)}`;
-const EMBED_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.9703!2d108.1946!3d15.9699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142115d9fac7089%3A0x7c9c88a8b09a5f32!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBWaeG7h3QtSMOgbg!5e0!3m2!1svi!2svn!4v1698000000000!5m2!1svi!2svn';
+const EMBED_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.733229303668!2d108.24976707501798!3d15.97529338469033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142108997b072c1%3A0x8661601a755d9d78!2sVietnam-Korea%20University%20of%20Information%20and%20Communication%20Technology%20(VKU)!5e0!3m2!1svi!2svn!4v1727577600000!5m2!1svi!2svn';
 
 export default function MapSection() {
   const { ref, isVisible } = useScrollReveal<HTMLElement>();
