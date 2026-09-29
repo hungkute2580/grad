@@ -1,6 +1,5 @@
 .map-section {
   position: relative;
-  overflow: hidden;
   background-color: #FAF7F2;
 }
 
@@ -45,11 +44,13 @@
   @include tablet {
     grid-template-columns: 1fr;
     gap: 24px;
+    margin-top: 32px;
   }
 
   @include mobile {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+    margin-top: 24px;
   }
 }
 

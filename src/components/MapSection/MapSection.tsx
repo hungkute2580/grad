@@ -43,8 +43,8 @@ export default function MapSection() {
           {/* Map iframe */}
           <motion.div
             className="map-iframe-wrap"
-            initial={{ opacity: 0, x: -40 }}
-            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <iframe
@@ -60,8 +60,8 @@ export default function MapSection() {
           {/* Info panel */}
           <motion.div
             className="map-info"
-            initial={{ opacity: 0, x: 40 }}
-            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.45, duration: 0.8 }}
           >
             <div className="venue-info">
