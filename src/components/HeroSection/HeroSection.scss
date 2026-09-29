@@ -464,15 +464,33 @@
 
   @include mobile {
     margin: 8px 0;
+    max-width: calc(100vw - 32px);
 
     &__stitch {
+      flex-direction: column;
       padding: 6px 14px;
-      gap: 6px;
+      gap: 3px;
       font-size: 0.78rem;
+
+      .degree-title {
+        white-space: normal;
+        text-align: center;
+      }
+
+      .degree-sep {
+        display: none;
+      }
+
+      .degree-sub {
+        white-space: normal;
+        text-align: center;
+        font-size: 0.74rem;
+        opacity: 0.9;
+      }
     }
 
     &__tail {
-      width: 34px;
+      width: 28px;
       top: 6px;
 
       &--left { right: calc(100% - 10px); }
@@ -490,6 +508,7 @@
 .hero-school {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-family: $font-body;
   font-size: clamp(0.78rem, 2vw, 0.95rem);
@@ -498,11 +517,36 @@
   letter-spacing: 0.04em;
   max-width: 650px;
   line-height: 1.4;
+  padding: 0 12px;
 
   .school-dot {
     color: $color-gold;
     font-size: 0.5rem;
     flex-shrink: 0;
+  }
+
+  .school-name {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 0.35em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 2px;
+      align-items: center;
+    }
+
+    &__line {
+      display: inline-block;
+      white-space: nowrap;
+
+      @include mobile {
+        white-space: normal;
+        text-align: center;
+      }
+    }
   }
 }
 

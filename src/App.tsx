@@ -16,6 +16,7 @@ import MapSection from './components/MapSection/MapSection';
 import Footer from './components/Footer/Footer';
 
 import RibbonMarquee from './components/RibbonMarquee/RibbonMarquee';
+import CursorTrail from './components/CursorTrail/CursorTrail';
 
 type Phase = 'envelope' | 'main';
 
@@ -78,6 +79,9 @@ function App() {
 
   return (
     <>
+      {/* Cursor trail glow effect — desktop only */}
+      <CursorTrail />
+
       {/* Gold particle layer — always present, dims when on main */}
       <ParticleCanvas active={phase === 'envelope'} />
 
@@ -115,7 +119,7 @@ function App() {
         <PoemBanner />
         <RibbonMarquee reverse text="✦ BỐN NĂM MIỆT MÀI CHUNG MỘT LỐI ✦ NGÀY VUI CHẠM MỐC RẠNG TƯƠNG LAI ✦ VKU 2022 - 2026 ✦" />
         <InviteMessage />
-        <RibbonMarquee text="✦ TRÂN TRỌNG KÍNH MỜI ✦ THỨ TƯ 30.09.2026 ✦ 10:00 - 12:00 ✦ ĐẠI HỌC VKU ✦" />
+        <RibbonMarquee text="✦ TRÂN TRỌNG KÍNH MỜI ✦ THỨ TƯ 30.09.2026 ✦ 09:00 - 12:00 ✦ ĐẠI HỌC VKU ✦" />
         <EventDetails />
         <RibbonMarquee reverse text="✦ ĐẾM NGƯỢC THỜI GIAN ✦ CHỜ ĐÓN NGÀY VUI ✦ VKU GRADUATION 2026 ✦" />
         <CountdownTimer />

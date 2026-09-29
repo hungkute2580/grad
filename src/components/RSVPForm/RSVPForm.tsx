@@ -138,7 +138,7 @@ export default function RSVPForm() {
                   <div className="radio-group">
                     {[
                       { value: 'yes', emoji: '🎉', label: 'Có, mình sẽ đến!' },
-                      { value: 'no',  emoji: '😢', label: 'Rất tiếc, không đến được' },
+                      { value: 'no', emoji: '😢', label: 'Rất tiếc, không đến được' },
                     ].map(opt => (
                       <label
                         key={opt.value}
@@ -176,15 +176,15 @@ export default function RSVPForm() {
                       onChange={e => setForm(f => ({ ...f, guests: e.target.value }))}
                     >
                       <option value="1">Chỉ mình tôi</option>
-                      <option value="2">Tôi + 1 người</option>
-                      <option value="3">Tôi + 2 người</option>
+                      <option value="2">Tôi + người yêu</option>
+                      <option value="3">Tôi + bạn thân</option>
                     </select>
                   </motion.div>
                 )}
 
                 {/* Message */}
                 <div className="form-field">
-                  <label className="form-label" htmlFor="rsvp-message">Lời chúc cho Quốc Hưng 💛</label>
+                  <label className="form-label" htmlFor="rsvp-message">Lời chúc cho Hưng 💛</label>
                   <textarea
                     id="rsvp-message"
                     className="form-input form-textarea"

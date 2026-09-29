@@ -11,7 +11,7 @@ const MESSAGE_LINES = [
   'Chẳng ngại gian khó vì có Gemini rồi nè! 😭',
   '',
   'Hôm nay bước ngoặt đến rồi,',
-  'Cảm ơn TEAM DEV, suốt đời bên nhau! 🫶',
+  'Cảm ơn TEAM DEV, suốt đời bên nhau! ❤️',
 ];
 
 export default function PersonalMessage() {

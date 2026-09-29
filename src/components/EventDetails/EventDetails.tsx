@@ -17,7 +17,7 @@ const details = [
     icon: Clock,
     label: 'Giờ',
     value: 'Buổi sáng',
-    main: '10:00 - 12:00',
+    main: '09:00 - 12:00',
     mapUrl: null,
   },
   {

@@ -237,7 +237,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.05 }}
         >
           <span className="school-dot">◆</span>
-          <span>Trường Đại học Công nghệ thông tin và Truyền thông Việt - Hàn</span>
+          <span className="school-name">
+            <span className="school-name__line">Trường Đại học Công nghệ thông tin</span>
+            <span className="school-name__line">và Truyền thông Việt - Hàn</span>
+          </span>
           <span className="school-dot">◆</span>
         </motion.div>
 

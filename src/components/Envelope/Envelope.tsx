@@ -85,7 +85,7 @@ export default function Envelope({ onOpen }: Props) {
           </div>
           <div className="event-chip">
             <span>⏰</span>
-            <span>10:00 - 12:00</span>
+            <span>09:00 - 12:00</span>
           </div>
         </div>
       </motion.div>

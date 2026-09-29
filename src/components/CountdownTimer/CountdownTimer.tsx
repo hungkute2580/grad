@@ -4,8 +4,8 @@ import { useCountdown } from '@/hooks/useCountdown';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import './CountdownTimer.scss';
 
-// Target: 30/09/2026 10:00 AM Vietnam Time (UTC+7 = UTC+0 - 3h = 03:00 UTC)
-const TARGET = new Date('2026-09-30T03:00:00Z');
+// Target: 30/09/2026 09:00 AM Vietnam Time (UTC+7 = UTC+0 - 2h = 02:00 UTC)
+const TARGET = new Date('2026-09-30T02:00:00Z');
 
 interface UnitProps {
   value: number;
@@ -107,7 +107,7 @@ export default function CountdownTimer() {
           animate={isVisible ? { opacity: 1 } : {}}
           transition={{ delay: 0.7, duration: 0.6 }}
         >
-          Thứ Tư, 30 tháng 09 năm 2026 · 10:00 – 12:00
+          Thứ Tư, 30 tháng 09 năm 2026 · 09:00 – 12:00
         </motion.p>
       </div>
     </section>
